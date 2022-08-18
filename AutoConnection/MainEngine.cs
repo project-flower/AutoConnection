@@ -58,7 +58,6 @@ namespace AutoConnection
             winEventProc = new WINEVENTPROC(WinEventProc);
             wndEnumProc = new WNDENUMPROC(WndEnumProc);
             AutomationElementHelper.PropertyConditionFlags = PropertyConditionFlags.IgnoreCase;
-            Enabled = true;
         }
 
         public void CheckWindows()

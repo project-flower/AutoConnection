@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.textBoxSettingFileName = new System.Windows.Forms.TextBox();
             this.buttonLoad = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -164,7 +163,6 @@
             // notifyIcon
             // 
             this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "AutoConnection";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);

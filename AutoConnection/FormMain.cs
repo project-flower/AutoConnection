@@ -64,6 +64,20 @@ namespace AutoConnection
             Settings.Default.Save();
         }
 
+        private void SetEnabled(bool enabled)
+        {
+            mainEngine.Enabled = enabled;
+
+            if (mainEngine.Enabled)
+            {
+                notifyIcon.Icon = Resources.Small;
+            }
+            else
+            {
+                notifyIcon.Icon = Resources.Gray;
+            }
+        }
+
         private void ShowErrorMessage(string message)
         {
             ShowMessage(message, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,10 +154,13 @@ namespace AutoConnection
 
         private void load(object sender, EventArgs e)
         {
+            bool initial = false;
+
             try
             {
                 if (PrepairSettingFile())
                 {
+                    initial = true;
                     windowRequired = true;
                 }
             }
@@ -163,6 +180,8 @@ namespace AutoConnection
                 launchErrorMessage = exception.Message;
                 windowRequired = true;
             }
+
+            SetEnabled(!initial);
         }
 
         private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
@@ -192,7 +211,7 @@ namespace AutoConnection
 
         private void toolStripMenuItemEnabled_Click(object sender, EventArgs e)
         {
-            mainEngine.Enabled = !(mainEngine.Enabled);
+            SetEnabled(!(mainEngine.Enabled));
         }
 
         private void toolStripMenuItemExit_Click(object sender, EventArgs e)
