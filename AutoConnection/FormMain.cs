@@ -181,6 +181,8 @@ namespace AutoConnection
                 windowRequired = true;
             }
 
+            if (!initial) mainEngine.CheckWindows();
+
             SetEnabled(!initial);
         }
 
